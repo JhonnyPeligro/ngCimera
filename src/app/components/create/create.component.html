@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+         {{ title }}
+    </div>
+    <div class="panel-body">
+      
+        <form [formGroup]="pdpForm" novalidate>  
+        
+            <div class="form-group">
+                <label class="col-md-4">Coin Name</label>
+                <input type="text" class="form-control" formControlName="kapital" #name/>
+            </div>
+
+            <div *ngIf="pdpForm.controls['kapital'].invalid && (pdpForm.controls['kapital'].dirty || pdpForm.controls['kapital'].touched)" class="alert alert-danger">
+                <div *ngIf="pdpForm.controls['kapital'].errors.required">
+                  Capital is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4">Coin Price</label>
+                <input type="text" class="form-control" formControlName="honorarium"/>
+            </div>
+
+            <div *ngIf="pdpForm.controls['honorarium'].invalid && (pdpForm.controls['honorarium'].dirty || pdpForm.controls['honorarium'].touched)" class="alert alert-danger">
+                <div *ngIf="pdpForm.controls['honorarium'].errors.required">
+                  Capital is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button (click)="addPdp(kapital.value, honorarum.value)" [disabled]="pdpForm.pristine || pdpForm.invalid" class="btn btn-primary">Add</button>
+            </div>
+        
+        </form>
+        
+    </div>
+</div>
